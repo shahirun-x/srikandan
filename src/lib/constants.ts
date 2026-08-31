@@ -257,40 +257,50 @@ export interface Industry {
   name: string;
   description: string;
   icon: LucideIcon;
+  image: string;
 }
+
+const UNSPLASH = (id: string, w = 600) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format`;
 
 export const INDUSTRIES: Industry[] = [
   {
     name: "Startups",
     description: "Tailored IT packages for emerging businesses.",
     icon: Rocket,
+    image: UNSPLASH("1559136555-9303baea8ebd"),
   },
   {
     name: "Retail",
     description:
       "Point-of-sale systems, inventory management and e-commerce platforms.",
     icon: ShoppingCart,
+    image: UNSPLASH("1556742049-0cfed4f6a45d"),
   },
   {
     name: "Education",
     description:
       "Smart classrooms, learning management systems and campus networks.",
     icon: GraduationCap,
+    image: UNSPLASH("1523580494863-6f3031224c94"),
   },
   {
     name: "Healthcare",
     description: "IT solutions for hospitals, clinics and diagnostic centres.",
     icon: HeartPulse,
+    image: UNSPLASH("1519494026892-80bbd2d6fd0d"),
   },
   {
     name: "Manufacturing",
     description: "ERP, production monitoring and supply chain solutions.",
     icon: Factory,
+    image: UNSPLASH("1565043666747-69f6646db940"),
   },
   {
     name: "Corporate Offices",
     description: "End-to-end IT infrastructure and support.",
     icon: Building2,
+    image: UNSPLASH("1497366216548-37526070297c"),
   },
 ];
 
@@ -421,6 +431,7 @@ export interface Testimonial {
   name: string;
   role: string;
   rating: number;
+  avatar: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -430,6 +441,8 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Operations Manager",
     role: "Retail Chain, Chennai",
     rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80&auto=format&fit=crop",
   },
   {
     quote:
@@ -437,6 +450,8 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "IT Head",
     role: "Multi-Specialty Hospital, Chennai",
     rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80&auto=format&fit=crop",
   },
   {
     quote:
@@ -444,6 +459,8 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Founder",
     role: "EdTech Startup, Chennai",
     rating: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -516,6 +533,8 @@ export interface BlogPost {
   categoryColor: string;
   excerpt: string;
   readTime: string;
+  image: string;
+  imageAlt: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -526,6 +545,9 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Is your network slowing down your team? Here are the warning signs that it's time for an upgrade...",
     readTime: "5 min read",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format",
+    imageAlt: "Network infrastructure and cabling",
   },
   {
     title: "Cloud vs On-Premise: Which is Right for Your Business?",
@@ -534,6 +556,9 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "The cloud debate continues. We break down the costs, benefits, and risks of each approach...",
     readTime: "7 min read",
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&auto=format",
+    imageAlt: "Cloud data centre",
   },
   {
     title: "Cybersecurity Checklist for Small Businesses in 2024",
@@ -542,6 +567,9 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Small businesses are the #1 target for cyberattacks. Here's your essential security checklist...",
     readTime: "4 min read",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&auto=format",
+    imageAlt: "Circuit board — cybersecurity and infrastructure",
   },
 ];
 

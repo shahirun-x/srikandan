@@ -55,9 +55,9 @@ export default function HomePage() {
         <Services />
         <BrandMarquee />
         <Industries />
+        {/* gray → navy (into the testimonials / why-us dark band) */}
+        <div aria-hidden className="h-16 bg-gradient-to-b from-gray-50 to-[#0A1628]" />
         <ClientsTrust />
-        {/* white → navy */}
-        <div aria-hidden className="h-16 bg-gradient-to-b from-white to-[#0A1628]" />
         <WhyChooseUs />
         {/* navy → teal (into the CTA gradient) */}
         <div aria-hidden className="h-12 bg-gradient-to-b from-[#0A1628] to-[#4BBFB4]" />
