@@ -134,17 +134,17 @@ export default function WhyChooseUs() {
           {/* Connecting line behind numbers */}
           <div className="absolute left-0 right-0 top-[18px] z-0 h-px bg-gradient-to-r from-transparent via-[#E8A838]/40 to-transparent" />
 
-          <div className="relative z-10 grid grid-cols-5 gap-6">
+          <div className="relative z-10 grid grid-cols-5 items-stretch gap-6">
             {ITEMS.map((item) => (
               <div
                 key={item.num}
-                className="flex flex-col items-center text-center"
+                className="flex h-full flex-col items-center text-center"
               >
                 <span className="bg-[#0A1628] px-3 text-lg font-bold italic text-[#E8A838]">
                   {item.num}
                 </span>
                 <h3 className="mt-4 text-base font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-400">
                   {item.desc}
                 </p>
                 <StatBadge item={item} isVisible={isVisible} />
@@ -155,32 +155,32 @@ export default function WhyChooseUs() {
 
         {/* Tablet: 3 + 2 layout */}
         <div className="hidden md:block lg:hidden">
-          <div className="mb-6 grid grid-cols-3 gap-6">
+          <div className="mb-6 grid grid-cols-3 items-stretch gap-6">
             {ITEMS.slice(0, 3).map((item) => (
               <div
                 key={item.num}
-                className="flex flex-col items-center text-center"
+                className="flex h-full flex-col items-center text-center"
               >
                 <span className="text-lg font-bold italic text-[#E8A838]">
                   {item.num}
                 </span>
                 <h3 className="mt-3 text-base font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm text-gray-400">{item.desc}</p>
+                <p className="mt-2 flex-1 text-sm text-gray-400">{item.desc}</p>
                 <StatBadge item={item} isVisible={isVisible} />
               </div>
             ))}
           </div>
-          <div className="mx-auto grid max-w-md grid-cols-2 gap-6">
+          <div className="mx-auto grid max-w-md grid-cols-2 items-stretch gap-6">
             {ITEMS.slice(3).map((item) => (
               <div
                 key={item.num}
-                className="flex flex-col items-center text-center"
+                className="flex h-full flex-col items-center text-center"
               >
                 <span className="text-lg font-bold italic text-[#E8A838]">
                   {item.num}
                 </span>
                 <h3 className="mt-3 text-base font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm text-gray-400">{item.desc}</p>
+                <p className="mt-2 flex-1 text-sm text-gray-400">{item.desc}</p>
                 <StatBadge item={item} isVisible={isVisible} />
               </div>
             ))}
@@ -189,17 +189,17 @@ export default function WhyChooseUs() {
 
         {/* Mobile: 2-column grid, 5th centered */}
         <div className="md:hidden">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 items-stretch gap-4">
             {ITEMS.slice(0, 4).map((item) => (
               <div
                 key={item.num}
-                className="flex flex-col items-center text-center"
+                className="flex h-full flex-col items-center text-center"
               >
                 <span className="text-base font-bold italic text-[#E8A838]">
                   {item.num}
                 </span>
                 <h3 className="mt-2 text-sm font-bold">{item.title}</h3>
-                <p className="mt-1 hidden text-xs text-gray-400 min-[400px]:block">
+                <p className="mt-1 hidden flex-1 text-xs text-gray-400 min-[400px]:block">
                   {item.desc}
                 </p>
                 <StatBadge item={item} isVisible={isVisible} />

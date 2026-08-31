@@ -197,9 +197,11 @@ select:focus-visible {
 
 /* ── Infinite brand marquee ──────────────────────────────────────────────
    Two identical copies of the row, each in its own div with the SAME
-   animation. They move together; when copy 1 scrolls fully off-screen,
+   animation class. They move together; when copy 1 scrolls fully off-screen,
    copy 2 sits exactly where copy 1 started — a seamless loop. The
-   `-1rem` accounts for the gap-4 (1rem) between the two copies. */
+   `-1rem` accounts for the gap-4 (1rem) between the two copies.
+   Keyframes + classes live at the top level (never inside @layer) so the
+   Tailwind v4 build cannot tree-shake them. */
 @keyframes marquee-left {
   0% {
     transform: translateX(0);
@@ -216,15 +218,25 @@ select:focus-visible {
     transform: translateX(0);
   }
 }
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+  will-change: transform;
+}
+.animate-marquee-right {
+  animation: marquee-right 35s linear infinite;
+  will-change: transform;
+}
 /* Pause on hover — pointer devices only (no hover on touch) */
 @media (hover: hover) {
-  .marquee-row:hover [style*="animation"] {
-    animation-play-state: paused !important;
+  .marquee-row:hover .animate-marquee-left,
+  .marquee-row:hover .animate-marquee-right {
+    animation-play-state: paused;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .flex[style*="animation"] {
-    animation: none !important;
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
   }
 }
 

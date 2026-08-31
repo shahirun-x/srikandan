@@ -32,31 +32,20 @@ function BrandPill({ name }: { name: string }) {
 function MarqueeRow({
   brands,
   direction,
-  duration,
 }: {
   brands: string[];
   direction: "left" | "right";
-  duration: number;
 }) {
+  const animClass =
+    direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
   return (
     <div className="marquee-row group flex overflow-hidden">
-      <div
-        className="flex shrink-0 gap-4"
-        style={{
-          animation: `marquee-${direction} ${duration}s linear infinite`,
-        }}
-      >
+      <div className={`flex shrink-0 gap-4 ${animClass}`}>
         {brands.map((b) => (
           <BrandPill key={b} name={b} />
         ))}
       </div>
-      <div
-        className="ml-4 flex shrink-0 gap-4"
-        aria-hidden="true"
-        style={{
-          animation: `marquee-${direction} ${duration}s linear infinite`,
-        }}
-      >
+      <div className={`ml-4 flex shrink-0 gap-4 ${animClass}`} aria-hidden="true">
         {brands.map((b) => (
           <BrandPill key={`dup-${b}`} name={b} />
         ))}
@@ -91,8 +80,8 @@ export default function BrandMarquee() {
             "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
         }}
       >
-        <MarqueeRow brands={ROW_1} direction="left" duration={30} />
-        <MarqueeRow brands={ROW_2} direction="right" duration={35} />
+        <MarqueeRow brands={ROW_1} direction="left" />
+        <MarqueeRow brands={ROW_2} direction="right" />
       </div>
     </section>
   );
