@@ -31,13 +31,13 @@ export function BlogPreview() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="no-scrollbar snap-scroller -mx-4 mt-12 flex gap-4 overflow-x-auto px-4 pb-2 sm:mt-14 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0"
+          className="no-scrollbar -mx-4 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mt-14 md:mx-0 md:grid md:snap-none md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0"
         >
           {BLOG_POSTS.map((post) => (
             <motion.article
               key={post.title}
               variants={fadeUp}
-              className="group flex h-full min-w-[280px] shrink-0 flex-col gap-4 rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift md:min-w-0"
+              className="group flex h-full min-w-[280px] shrink-0 snap-center flex-col gap-4 rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift md:min-w-0 md:shrink"
             >
               <span
                 className={`inline-flex w-fit rounded-full px-3 py-1 text-[0.7rem] font-bold uppercase tracking-wide ${

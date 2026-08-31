@@ -18,7 +18,7 @@ const Services = dynamic(() =>
   import("@/components/sections/Services").then((m) => m.Services),
 );
 const BrandMarquee = dynamic(() =>
-  import("@/components/sections/BrandMarquee").then((m) => m.BrandMarquee),
+  import("@/components/sections/BrandMarquee").then((m) => m.default),
 );
 const Industries = dynamic(() =>
   import("@/components/sections/Industries").then((m) => m.Industries),
@@ -27,7 +27,7 @@ const ClientsTrust = dynamic(() =>
   import("@/components/sections/ClientsTrust").then((m) => m.ClientsTrust),
 );
 const WhyChooseUs = dynamic(() =>
-  import("@/components/sections/WhyChooseUs").then((m) => m.WhyChooseUs),
+  import("@/components/sections/WhyChooseUs").then((m) => m.default),
 );
 const CTASection = dynamic(() =>
   import("@/components/sections/CTASection").then((m) => m.CTASection),
@@ -56,15 +56,14 @@ export default function HomePage() {
         <BrandMarquee />
         <Industries />
         <ClientsTrust />
-        {/* light → dark bridge */}
-        <div aria-hidden className="h-16 bg-gradient-to-b from-white to-navy" />
+        {/* white → navy */}
+        <div aria-hidden className="h-16 bg-gradient-to-b from-white to-[#0A1628]" />
         <WhyChooseUs />
+        {/* navy → teal (into the CTA gradient) */}
+        <div aria-hidden className="h-12 bg-gradient-to-b from-[#0A1628] to-[#4BBFB4]" />
         <CTASection />
-        {/* dark → light bridge */}
-        <div
-          aria-hidden
-          className="h-14 bg-gradient-to-b from-navy to-light-gray"
-        />
+        {/* navy → gray (out of the CTA gradient) */}
+        <div aria-hidden className="h-16 bg-gradient-to-b from-[#0A1628] to-gray-50" />
         <Faq />
         <BlogPreview />
         <Contact />
