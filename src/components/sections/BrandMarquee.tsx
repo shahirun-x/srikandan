@@ -21,53 +21,53 @@ const ROW_2 = [
   "Seagate",
 ];
 
-const MARQUEE_KEYFRAMES = `
+/**
+ * Injected inline so no CSS build step can strip it. The `!important` on the
+ * class rules is deliberate: it out-specifies the global
+ * `@media (prefers-reduced-motion) * { animation: ... }` dampener in
+ * globals.css, so this decorative ticker keeps scrolling regardless of the OS
+ * "reduce motion" setting.
+ */
+const MARQUEE_CSS = `
 @keyframes skMarqueeLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% - 1rem)); }
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - 3rem)); }
 }
 @keyframes skMarqueeRight {
-  0% { transform: translateX(calc(-100% - 1rem)); }
-  100% { transform: translateX(0); }
+  from { transform: translateX(calc(-100% - 3rem)); }
+  to { transform: translateX(0); }
+}
+.sk-mq { will-change: transform; }
+.sk-mq-l { animation: skMarqueeLeft 28s linear infinite !important; }
+.sk-mq-r { animation: skMarqueeRight 34s linear infinite !important; }
+@media (hover: hover) {
+  .sk-mq-row:hover .sk-mq-l,
+  .sk-mq-row:hover .sk-mq-r { animation-play-state: paused !important; }
 }
 `;
 
-function BrandPill({ name }: { name: string }) {
+function Wordmark({ name }: { name: string }) {
   return (
-    <span className="inline-flex flex-shrink-0 items-center whitespace-nowrap rounded-full border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-600 shadow-sm">
+    <span className="flex-shrink-0 whitespace-nowrap font-heading text-lg font-bold tracking-tight text-gray-400 transition-colors duration-300 hover:text-gray-700 sm:text-xl">
       {name}
     </span>
   );
 }
 
-function MarqueeTrack({
-  brands,
-  direction,
-  duration,
-}: {
-  brands: string[];
-  direction: "left" | "right";
-  duration: number;
-}) {
-  const animName = direction === "left" ? "skMarqueeLeft" : "skMarqueeRight";
-  const animStyle = {
-    animationName: animName,
-    animationDuration: `${duration}s`,
-    animationTimingFunction: "linear",
-    animationIterationCount: "infinite",
-    willChange: "transform",
-  } as const;
-
+function Track({ brands, dir }: { brands: string[]; dir: "l" | "r" }) {
   return (
-    <div className="group flex overflow-hidden">
-      <div className="flex shrink-0 gap-4" style={animStyle}>
+    <div className="sk-mq-row flex overflow-hidden">
+      <div className={`sk-mq sk-mq-${dir} flex shrink-0 gap-12`}>
         {brands.map((b) => (
-          <BrandPill key={b} name={b} />
+          <Wordmark key={b} name={b} />
         ))}
       </div>
-      <div className="ml-4 flex shrink-0 gap-4" aria-hidden="true" style={animStyle}>
+      <div
+        className={`sk-mq sk-mq-${dir} ml-12 flex shrink-0 gap-12`}
+        aria-hidden="true"
+      >
         {brands.map((b) => (
-          <BrandPill key={`d-${b}`} name={b} />
+          <Wordmark key={`d-${b}`} name={b} />
         ))}
       </div>
     </div>
@@ -77,8 +77,7 @@ function MarqueeTrack({
 export default function BrandMarquee() {
   return (
     <>
-      {/* Keyframes injected inline so nothing in the CSS build can strip them. */}
-      <style dangerouslySetInnerHTML={{ __html: MARQUEE_KEYFRAMES }} />
+      <style dangerouslySetInnerHTML={{ __html: MARQUEE_CSS }} />
       <section className="bg-gray-50 py-16 sm:py-20 lg:py-24">
         <div className="mx-auto mb-10 max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#4BBFB4]">
@@ -94,7 +93,7 @@ export default function BrandMarquee() {
           </p>
         </div>
         <div
-          className="space-y-6 overflow-hidden"
+          className="flex flex-col gap-8 overflow-hidden"
           style={{
             maskImage:
               "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
@@ -102,8 +101,8 @@ export default function BrandMarquee() {
               "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
           }}
         >
-          <MarqueeTrack brands={ROW_1} direction="left" duration={25} />
-          <MarqueeTrack brands={ROW_2} direction="right" duration={30} />
+          <Track brands={ROW_1} dir="l" />
+          <Track brands={ROW_2} dir="r" />
         </div>
       </section>
     </>
