@@ -17,6 +17,13 @@ export function Services() {
       id="services"
       className="relative scroll-mt-24 overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
     >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&auto=format"
+        alt=""
+        loading="lazy"
+        className="pointer-events-none absolute inset-x-0 top-0 h-64 w-full object-cover opacity-[0.05] [mask-image:linear-gradient(to_bottom,black,transparent)]"
+      />
       <div
         className="pointer-events-none absolute right-0 top-32 h-96 w-96 max-w-full rounded-full"
         style={{

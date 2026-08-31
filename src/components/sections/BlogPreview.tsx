@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
@@ -38,13 +37,13 @@ export function BlogPreview() {
               variants={fadeUp}
               className="group flex h-full w-[300px] max-w-[82vw] flex-shrink-0 snap-center flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift md:w-auto md:max-w-none md:flex-shrink"
             >
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image
+              <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={post.image}
                   alt={post.imageAlt}
-                  fill
-                  sizes="(max-width: 768px) 300px, 380px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <span
                   className={`absolute left-3 top-3 inline-flex rounded-full px-3 py-1 text-[0.7rem] font-bold uppercase tracking-wide shadow-sm ${

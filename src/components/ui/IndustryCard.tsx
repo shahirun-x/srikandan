@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { fadeUp } from "@/lib/motion";
@@ -24,12 +23,12 @@ export function IndustryCard({
       className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-lift"
     >
       <div className="relative h-36 w-full overflow-hidden">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={image}
-          alt={name}
-          fill
-          sizes="(max-width: 768px) 300px, 360px"
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          alt={`${name} — Sri Kandan Solutions`}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
       </div>

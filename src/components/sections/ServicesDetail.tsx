@@ -25,6 +25,20 @@ export function ServicesDetail() {
               whileInView="show"
               viewport={viewportOnce}
             >
+              <motion.div
+                variants={fadeUp}
+                className="relative mb-8 h-44 w-full overflow-hidden rounded-2xl border border-navy/10 shadow-card sm:h-56"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={tab.image}
+                  alt={`${tab.label} — Sri Kandan Solutions`}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-navy/10 to-transparent" />
+              </motion.div>
+
               <motion.div variants={fadeUp} className="flex flex-col gap-3">
                 <span className="flex items-center gap-3">
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-teal-dark">

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { StarRating } from "@/components/ui/StarRating";
 import type { Testimonial } from "@/lib/constants";
 import { cn } from "@/lib/cn";
@@ -26,11 +25,11 @@ export function TestimonialCard({
       <div className="my-6 h-px bg-white/10" />
 
       <figcaption className="flex items-center gap-3">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={data.avatar}
-          alt=""
-          width={48}
-          height={48}
+          alt={`${data.name}, ${data.role}`}
+          loading="lazy"
           className="h-12 w-12 rounded-full border-2 border-[#E8A838]/30 object-cover"
         />
         <div>

@@ -7,12 +7,6 @@ import { Container } from "@/components/ui/Container";
 import { ABOUT } from "@/lib/constants";
 import { fadeUp, slideInRight, staggerContainer, viewportOnce } from "@/lib/motion";
 
-const FLOAT_STATS = [
-  { value: "10+", label: "Years delivering" },
-  { value: "500+", label: "Clients served" },
-  { value: "6", label: "Industries" },
-];
-
 export function AboutUs() {
   return (
     <section id="about" className="scroll-mt-24 bg-light-gray py-16 sm:py-20 lg:py-24">
@@ -69,33 +63,34 @@ export function AboutUs() {
           </div>
         </motion.div>
 
-        {/* decorative visual */}
+        {/* workspace image */}
         <motion.div
           variants={slideInRight}
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="relative mx-auto hidden aspect-square w-full max-w-md lg:block"
-          aria-hidden
+          className="relative mx-auto hidden w-full max-w-md lg:block"
         >
-          <div className="absolute left-0 top-6 h-64 w-64 rounded-[3rem] bg-teal/25" />
-          <div className="absolute bottom-0 right-2 h-52 w-52 rounded-full bg-gold/25" />
-          <div className="absolute right-8 top-0 h-40 w-40 rounded-3xl border-2 border-navy/15" />
-          <div className="absolute inset-10 rounded-[2.5rem] bg-navy shadow-lift" />
-          <div className="absolute inset-0 flex flex-col justify-center gap-4 p-14">
-            {FLOAT_STATS.map((s, i) => (
-              <div
-                key={s.label}
-                className={`flex items-center gap-4 rounded-2xl bg-white/95 px-5 py-4 shadow-lift backdrop-blur ${
-                  i === 1 ? "translate-x-8" : ""
-                }`}
-              >
-                <span className="font-heading text-2xl font-extrabold text-teal">
-                  {s.value}
-                </span>
-                <span className="text-sm font-semibold text-navy">{s.label}</span>
-              </div>
-            ))}
+          <div className="absolute -right-5 -top-5 h-24 w-24 rounded-2xl border-2 border-gold/40" />
+          <div className="absolute -bottom-6 -left-6 h-28 w-28 rounded-full bg-teal/20" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-navy/10 shadow-lift">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format"
+              alt="Sri Kandan Solutions team collaborating in the office"
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-6 left-6 flex items-center gap-3 rounded-2xl bg-navy px-5 py-3.5 shadow-lift">
+            <span className="font-heading text-2xl font-extrabold text-teal">
+              10+
+            </span>
+            <span className="text-xs font-semibold leading-tight text-white/75">
+              years of
+              <br />
+              hands-on delivery
+            </span>
           </div>
         </motion.div>
       </Container>

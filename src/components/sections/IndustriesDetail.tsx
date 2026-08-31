@@ -29,6 +29,16 @@ export function IndustriesDetail() {
                 className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-14"
               >
                 <motion.div variants={fadeUp} className="flex flex-col gap-4">
+                  <div className="relative mb-2 h-44 w-full overflow-hidden rounded-2xl border border-navy/10 shadow-card">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={industry.image}
+                      alt={`${industry.name} — Sri Kandan Solutions`}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+                  </div>
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-teal">
                     <Icon className="h-7 w-7" strokeWidth={1.6} aria-hidden />
                   </span>

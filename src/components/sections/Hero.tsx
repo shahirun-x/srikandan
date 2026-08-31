@@ -157,6 +157,13 @@ export function Hero() {
           className="relative mx-auto aspect-square w-full max-w-[17rem] sm:max-w-sm lg:max-w-md"
           aria-hidden
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1000&q=80&auto=format"
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 h-full w-full rounded-[2.5rem] object-cover opacity-10"
+          />
           <div className="absolute inset-6 rounded-[2rem] bg-gradient-to-br from-teal/10 via-transparent to-gold/10" />
           <div className="absolute inset-0 rounded-[2.5rem] border border-navy/10" />
           <div className="grid h-full grid-cols-3 grid-rows-3 gap-3 p-6 sm:gap-4 sm:p-8">

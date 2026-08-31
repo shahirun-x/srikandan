@@ -153,6 +153,7 @@ export interface ServiceTab {
   label: string;
   blurb: string;
   badge?: string;
+  image: string;
   items: ServiceItem[];
 }
 
@@ -161,6 +162,8 @@ export const SERVICE_TABS: ServiceTab[] = [
     id: "products",
     label: "IT Products",
     blurb: "Enterprise-grade hardware, sourced, configured and delivered.",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1000&q=80&auto=format",
     items: [
       {
         title: "Servers & Endpoints",
@@ -187,6 +190,8 @@ export const SERVICE_TABS: ServiceTab[] = [
     label: "IT Services",
     blurb: "End-to-end services that design, deploy and run your infrastructure.",
     badge: "Most Requested",
+    image:
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000&q=80&auto=format",
     items: [
       {
         title: "System Integration",
@@ -230,6 +235,8 @@ export const SERVICE_TABS: ServiceTab[] = [
     id: "software",
     label: "Software Solutions",
     blurb: "Licensing and rollout of the software that runs your business.",
+    image:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1000&q=80&auto=format",
     items: [
       {
         title: "OS & Productivity Suites",
@@ -587,13 +594,34 @@ export const JOURNEY: Milestone[] = [
 export interface TeamMember {
   name: string;
   role: string;
+  photo: string;
 }
 
 export const TEAM: TeamMember[] = [
-  { name: "Technical Director", role: "Infrastructure & Integration" },
-  { name: "Solutions Architect", role: "Cloud & Networking" },
-  { name: "Support Lead", role: "Managed Services & AMC" },
-  { name: "Sales Manager", role: "Consulting & Accounts" },
+  {
+    name: "Technical Director",
+    role: "Infrastructure & Integration",
+    photo:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Solutions Architect",
+    role: "Cloud & Networking",
+    photo:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Support Lead",
+    role: "Managed Services & AMC",
+    photo:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Sales Manager",
+    role: "Consulting & Accounts",
+    photo:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&auto=format&fit=crop",
+  },
 ];
 
 export const FOOTER_SERVICES: string[] = [

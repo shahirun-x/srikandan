@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UserRound } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Container } from "@/components/ui/Container";
 import { TEAM } from "@/lib/constants";
@@ -14,7 +13,7 @@ export function Team() {
         <SectionTitle
           eyebrow="The people"
           title="Meet Our Expert Team"
-          description="Named roles now — real photos and bios can be added as the client is ready."
+          description="Representative photos and role titles — real names and bios can be swapped in whenever the client is ready."
         />
 
         <motion.div
@@ -28,11 +27,17 @@ export function Team() {
             <motion.article
               key={member.name}
               variants={fadeUp}
-              className="flex flex-col items-center gap-4 rounded-2xl border border-navy/10 bg-white p-7 text-center shadow-card"
+              className="group flex flex-col items-center gap-4 rounded-2xl border border-navy/10 bg-white p-7 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
             >
-              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-teal/10 text-teal">
-                <UserRound className="h-10 w-10" strokeWidth={1.4} aria-hidden />
-              </span>
+              <div className="h-24 w-24 overflow-hidden rounded-full ring-4 ring-teal/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={member.photo}
+                  alt={`${member.name} at Sri Kandan Solutions`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
               <div>
                 <h3 className="font-heading text-base font-bold text-navy">
                   {member.name}
