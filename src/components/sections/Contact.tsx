@@ -93,7 +93,7 @@ export function Contact() {
   }, [state, notify]);
 
   return (
-    <section id="contact" className="scroll-mt-24 bg-white py-16 sm:py-24 lg:py-28">
+    <section id="contact" className="scroll-mt-24 bg-white py-16 sm:py-20 lg:py-24">
       <Container>
         <SectionTitle
           eyebrow="Get in touch"

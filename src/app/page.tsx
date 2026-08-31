@@ -56,8 +56,15 @@ export default function HomePage() {
         <BrandMarquee />
         <Industries />
         <ClientsTrust />
+        {/* light → dark bridge */}
+        <div aria-hidden className="h-16 bg-gradient-to-b from-white to-navy" />
         <WhyChooseUs />
         <CTASection />
+        {/* dark → light bridge */}
+        <div
+          aria-hidden
+          className="h-14 bg-gradient-to-b from-navy to-light-gray"
+        />
         <Faq />
         <BlogPreview />
         <Contact />

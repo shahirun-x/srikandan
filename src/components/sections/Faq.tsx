@@ -23,7 +23,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="scroll-mt-24 bg-light-gray py-16 sm:py-24 lg:py-28">
+    <section id="faq" className="scroll-mt-24 bg-light-gray py-16 sm:py-20 lg:py-24">
       <Container className="max-w-3xl">
         <SectionTitle eyebrow="Good to know" title="Frequently Asked Questions" />
 

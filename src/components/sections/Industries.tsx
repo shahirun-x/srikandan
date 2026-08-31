@@ -30,7 +30,7 @@ export function Industries() {
   return (
     <section
       id="industries"
-      className="scroll-mt-24 bg-light-gray py-16 sm:py-24 lg:py-28"
+      className="scroll-mt-24 bg-light-gray py-16 sm:py-20 lg:py-24"
     >
       <Container>
         <SectionTitle
@@ -52,7 +52,7 @@ export function Industries() {
           {INDUSTRIES.map((industry) => (
             <div
               key={industry.name}
-              className="w-[78%] flex-shrink-0 sm:w-[46%] md:w-auto"
+              className="w-[82%] flex-shrink-0 sm:w-[48%] md:w-auto"
             >
               <IndustryCard {...industry} />
             </div>

@@ -16,7 +16,7 @@ export function IndustriesDetail() {
         return (
           <section
             key={industry.name}
-            className={`py-14 sm:py-20 ${
+            className={`py-16 sm:py-20 lg:py-24 ${
               i % 2 === 1 ? "bg-light-gray" : "bg-white"
             }`}
           >

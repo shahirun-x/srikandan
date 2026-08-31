@@ -15,7 +15,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="relative scroll-mt-24 overflow-hidden bg-white py-16 sm:py-24 lg:py-28"
+      className="relative scroll-mt-24 overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
     >
       <div
         className="pointer-events-none absolute right-0 top-32 h-96 w-96 max-w-full rounded-full"
@@ -50,7 +50,7 @@ export function Services() {
                     id={`tab-${tab.id}`}
                     onClick={() => setActive(tab.id)}
                     className={cn(
-                      "relative flex-shrink-0 whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-colors sm:px-5",
+                      "relative flex-shrink-0 whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 sm:px-5",
                       selected ? "text-white" : "text-navy/70 hover:text-navy",
                     )}
                   >
@@ -102,7 +102,7 @@ export function Services() {
           }}
           initial="hidden"
           animate="show"
-          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3"
         >
           {activeTab.items.map((item) => (
             <ServiceCard key={item.title} {...item} />

@@ -26,7 +26,7 @@ export function CTASection({
   secondaryHref = "/#contact",
 }: CTASectionProps) {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24">
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
       <div className="absolute inset-0 bg-gradient-to-br from-teal via-teal-dark to-navy" />
       {/* floating dots — CSS only */}
       <div className="absolute inset-0" aria-hidden>

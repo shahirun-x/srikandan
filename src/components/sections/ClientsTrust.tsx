@@ -28,7 +28,7 @@ export function ClientsTrust() {
   }, [reduced, count]);
 
   return (
-    <section className="scroll-mt-24 bg-white py-16 sm:py-24 lg:py-28">
+    <section className="scroll-mt-24 bg-white py-16 sm:py-20 lg:py-24">
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         {/* left */}
         <motion.div
@@ -96,7 +96,7 @@ export function ClientsTrust() {
                     onClick={() => setIndex(i)}
                     aria-label={`Show testimonial ${i + 1}`}
                     className={cn(
-                      "h-2 rounded-full transition-all",
+                      "h-2 rounded-full transition-all duration-300",
                       i === index ? "w-6 bg-teal" : "w-2 bg-navy/20",
                     )}
                   />
@@ -107,7 +107,7 @@ export function ClientsTrust() {
                   type="button"
                   onClick={() => go(-1)}
                   aria-label="Previous testimonial"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-navy/15 text-navy transition-colors hover:border-teal hover:text-teal"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-navy/15 text-navy transition-all duration-300 hover:border-teal hover:text-teal"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
@@ -115,7 +115,7 @@ export function ClientsTrust() {
                   type="button"
                   onClick={() => go(1)}
                   aria-label="Next testimonial"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-navy/15 text-navy transition-colors hover:border-teal hover:text-teal"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-navy/15 text-navy transition-all duration-300 hover:border-teal hover:text-teal"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>

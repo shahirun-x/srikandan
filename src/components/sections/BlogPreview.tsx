@@ -15,26 +15,29 @@ const TAG_STYLES: Record<string, string> = {
 
 export function BlogPreview() {
   return (
-    <section id="insights" className="scroll-mt-24 bg-white py-16 sm:py-24 lg:py-28">
+    <section id="insights" className="scroll-mt-24 bg-white py-16 sm:py-20 lg:py-24">
       <Container>
         <SectionTitle
           eyebrow="From the team"
           title="IT Insights & Resources"
           description="Practical guidance for business leaders navigating technology decisions."
         />
+      </Container>
 
+      {/* mobile: horizontal snap scroll · md+: 3-column grid */}
+      <Container>
         <motion.div
           variants={staggerContainer(0.1)}
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="mt-12 grid gap-6 sm:mt-14 md:grid-cols-3"
+          className="no-scrollbar snap-scroller -mx-4 mt-12 flex gap-4 overflow-x-auto px-4 pb-2 sm:mt-14 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0"
         >
           {BLOG_POSTS.map((post) => (
             <motion.article
               key={post.title}
               variants={fadeUp}
-              className="group flex h-full flex-col gap-4 rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift"
+              className="group flex h-full min-w-[280px] shrink-0 flex-col gap-4 rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift md:min-w-0"
             >
               <span
                 className={`inline-flex w-fit rounded-full px-3 py-1 text-[0.7rem] font-bold uppercase tracking-wide ${
@@ -64,7 +67,7 @@ export function BlogPreview() {
         </motion.div>
 
         <div className="mt-10 flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border-2 border-navy/15 px-6 py-3 text-sm font-semibold text-navy">
+          <span className="inline-flex items-center gap-2 rounded-full border-2 border-navy/15 px-6 py-3 text-sm font-semibold text-navy transition-all duration-300 hover:border-teal hover:text-teal">
             View All Articles
             <ArrowRight className="h-4 w-4" />
           </span>

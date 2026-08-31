@@ -9,7 +9,7 @@ import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Team() {
   return (
-    <section className="bg-light-gray py-16 sm:py-24 lg:py-28">
+    <section className="bg-light-gray py-16 sm:py-20 lg:py-24">
       <Container>
         <SectionTitle
           eyebrow="The people"

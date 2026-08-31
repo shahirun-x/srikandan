@@ -124,6 +124,24 @@ h6 {
   color: #fff;
 }
 
+/* Consistent keyboard focus ring on every interactive element */
+a:focus-visible,
+button:focus-visible,
+[role="tab"]:focus-visible,
+[role="button"]:focus-visible,
+summary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-teal),
+    0 0 0 4px rgb(255 255 255 / 0.85);
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-teal);
+}
+
 /* Floating animation for hero tech grid */
 @keyframes float-slow {
   0%,
@@ -177,37 +195,72 @@ h6 {
   animation: sk-pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Infinite marquee for the brand ticker */
-@keyframes sk-marquee-left {
-  from {
+/* ── Infinite brand marquee ──────────────────────────────────────────────
+   Pure CSS. The track holds the brand list twice back-to-back; each copy
+   carries a trailing gap (pr-4) so translateX(-50%) lands exactly one copy
+   over and loops with no visible jump. Not a scroll container — no drag. */
+@keyframes marquee-left {
+  0% {
     transform: translateX(0);
   }
-  to {
+  100% {
     transform: translateX(-50%);
   }
 }
-@keyframes sk-marquee-right {
-  from {
+@keyframes marquee-right {
+  0% {
     transform: translateX(-50%);
   }
-  to {
+  100% {
     transform: translateX(0);
   }
 }
-.marquee-track {
-  display: flex;
-  width: max-content;
-  flex-wrap: nowrap;
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
-.marquee-left {
-  animation: sk-marquee-left 38s linear infinite;
+.animate-marquee-left,
+.animate-marquee-right {
+  will-change: transform;
 }
-.marquee-right {
-  animation: sk-marquee-right 38s linear infinite;
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
 }
-.marquee-viewport:hover .marquee-left,
-.marquee-viewport:hover .marquee-right {
-  animation-play-state: paused;
+.animate-marquee-right {
+  animation: marquee-right 35s linear infinite;
+}
+/* Pause on hover — pointer devices only (no hover on touch) */
+@media (hover: hover) {
+  .marquee-pause:hover .animate-marquee-left,
+  .marquee-pause:hover .animate-marquee-right {
+    animation-play-state: paused;
+  }
+}
+/* Reduced motion: stop the scroll, drop the duplicate, wrap the list tidily */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
+  }
+  .marquee-dup {
+    display: none;
+  }
+  .marquee-copy {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 /* Blinking caret for the hero typing effect */
@@ -257,8 +310,6 @@ h6 {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-pulse-ring,
-  .marquee-left,
-  .marquee-right,
   .animate-caret {
     animation: none !important;
   }

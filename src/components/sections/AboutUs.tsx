@@ -15,7 +15,7 @@ const FLOAT_STATS = [
 
 export function AboutUs() {
   return (
-    <section id="about" className="scroll-mt-24 bg-light-gray py-16 sm:py-24 lg:py-28">
+    <section id="about" className="scroll-mt-24 bg-light-gray py-16 sm:py-20 lg:py-24">
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <motion.div
           variants={staggerContainer(0.1)}
@@ -36,33 +36,33 @@ export function AboutUs() {
             {ABOUT.paragraph}
           </motion.p>
 
-          <div className="mt-2 grid gap-5 sm:grid-cols-2">
+          <div className="mt-2 grid grid-cols-2 gap-3 sm:gap-5">
             <motion.div
               variants={fadeUp}
-              className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card"
+              className="rounded-2xl border border-navy/10 bg-white p-4 shadow-card transition-all duration-300 hover:shadow-lift sm:p-6"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal/10 text-teal">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal/10 text-teal sm:h-11 sm:w-11">
                 <Eye className="h-5 w-5" aria-hidden />
               </span>
-              <h3 className="mt-4 font-heading text-base font-bold text-navy">
+              <h3 className="mt-3 font-heading text-sm font-bold text-navy sm:mt-4 sm:text-base">
                 Our Vision
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-text">
+              <p className="mt-2 text-[0.8rem] leading-relaxed text-slate-text sm:text-sm">
                 {ABOUT.vision}
               </p>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
-              className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card"
+              className="rounded-2xl border border-navy/10 bg-white p-4 shadow-card transition-all duration-300 hover:shadow-lift sm:p-6"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-gold-dark">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold-dark sm:h-11 sm:w-11">
                 <Target className="h-5 w-5" aria-hidden />
               </span>
-              <h3 className="mt-4 font-heading text-base font-bold text-navy">
+              <h3 className="mt-3 font-heading text-sm font-bold text-navy sm:mt-4 sm:text-base">
                 Our Mission
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-text">
+              <p className="mt-2 text-[0.8rem] leading-relaxed text-slate-text sm:text-sm">
                 {ABOUT.mission}
               </p>
             </motion.div>

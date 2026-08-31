@@ -19,7 +19,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="scroll-mt-24 bg-white py-16 sm:py-24 lg:py-28"
+      className="scroll-mt-24 bg-white py-16 sm:py-20 lg:py-24"
     >
       <Container>
         <SectionTitle
@@ -33,7 +33,7 @@ export function Process() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="relative mt-14 grid gap-10 sm:mt-16 lg:grid-cols-4 lg:gap-6"
+          className="relative mt-14 grid gap-8 sm:mt-16 lg:grid-cols-4 lg:gap-6"
         >
           {/* desktop connecting line */}
           <span
@@ -43,27 +43,28 @@ export function Process() {
 
           {PROCESS_STEPS.map((step, i) => {
             const Icon = step.icon;
+            const notLast = i < PROCESS_STEPS.length - 1;
             return (
               <motion.li
                 key={step.title}
                 variants={stepVariant}
-                className="relative flex gap-5 lg:flex-col lg:gap-4 lg:text-center"
+                className="relative flex gap-4 lg:flex-col lg:gap-4 lg:text-center"
               >
-                {/* mobile vertical connector */}
-                {i < PROCESS_STEPS.length - 1 && (
+                {/* mobile vertical connector, centred on the number circle */}
+                {notLast && (
                   <span
                     aria-hidden
-                    className="absolute left-[1.375rem] top-14 h-[calc(100%+1.5rem)] w-0.5 bg-gradient-to-b from-teal/40 to-teal/5 lg:hidden"
+                    className="absolute left-[19px] top-12 h-[calc(100%-1rem)] w-0.5 bg-gradient-to-b from-teal/40 to-teal/5 lg:hidden"
                   />
                 )}
 
-                <div className="relative z-10 flex flex-col items-center lg:items-center">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-gold bg-white font-heading text-sm font-extrabold text-gold">
+                <div className="relative z-10 flex flex-shrink-0 flex-col items-center">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gold bg-white font-heading text-sm font-extrabold text-gold">
                     {i + 1}
                   </span>
                 </div>
 
-                <div className="flex-1 lg:mt-2">
+                <div className="flex-1 rounded-xl border border-navy/10 bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-card lg:mt-2 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:hover:shadow-none">
                   <span className="mb-3 hidden justify-center lg:flex">
                     <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal/10 text-teal">
                       <Icon className="h-6 w-6" strokeWidth={1.6} aria-hidden />
