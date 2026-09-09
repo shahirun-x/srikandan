@@ -7,6 +7,7 @@ import { RevealFailsafe } from "@/components/layout/RevealFailsafe";
 import { PageLoader } from "@/components/layout/PageLoader";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { COMPANY } from "@/lib/constants";
+import { Analytics } from "@vercel/analytics/next";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -107,6 +108,7 @@ export default function RootLayout({
           <CookieConsent />
           <RevealFailsafe />
         </MotionProvider>
+        <Analytics />
       </body>
     </html>
   );
